@@ -1,7 +1,7 @@
 # Financial Portfolio Application
 
 A full‑stack financial portfolio application with a **Node.js backend** and a **React + TypeScript frontend**.
-It includes user authentication, token validation, and an interactive dashboard for visualising portfolio data.
+It includes user authentication, token validation, and an interactive dashboard for visualising portfolio data (dummy).
 
 ---
 
@@ -29,13 +29,15 @@ The backend exposes three main APIs:
 The frontend is built with React + TypeScript and includes:
 
 - **Public Login Page**
-  - Uses local storage to store simple credentials
+  - Uses local storage to store auth token after logging in
   - Redirects to dashboard upon successful login
 
 - **Secure Dashboard**
   - Portfolio Balance Donut Chart with toggle between asset class view and individual asset view
   - Positions Table displaying the same data as the chart in tabular form
-  - Historical Performance Chart showing portfolio value over time
+  - Historical Performance Chart showing portfolio value over time ( 7D/15D/30D )
+  - Logout option available in the Dashboard Header
+  - Change theme functionality  available in the dashboard header
 
 ---
 
@@ -44,7 +46,8 @@ The frontend is built with React + TypeScript and includes:
 ```
 root/
 ├─ backend/          # Node.js backend
-└─ frontend/         # React + TypeScript frontend
+├─ frontend/         # React + TypeScript frontend
+|_ shared/           # Stores shared typed
 ```
 
 ---
@@ -81,7 +84,7 @@ npm run start
 Backend runs at: `http://localhost:3001`
 
 **Backend Commands:**
-
+- `npm run lint` - Checks the codebase for linting issues and style consistency.
 - `npm run dev` — Run backend in development mode with auto-reload
 
 **Start frontend:**
@@ -98,7 +101,7 @@ Open `http://localhost:4173` in your browser.
 Login using credentials test / Password1_
 
 **Frontend Commands:**
-
+- `npm run lint` - Checks the codebase for linting issues and style consistency.
 - `npm run dev` — Run frontend in development mode with hot module replacement
 - `npm run test` — Run frontend tests
 
@@ -108,4 +111,4 @@ Login using credentials test / Password1_
 
 - Both backend and frontend must be running for full functionality.
 - Update `.env` for environment‑specific configuration.
-- Charts are interactive and support switching between asset‑class and individual‑asset views.
+- Historical data is currently fetched in a single request. For larger datasets, a separate endpoint would be introduced to support pagination using a cursor ID and page size.
