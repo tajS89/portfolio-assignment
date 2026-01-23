@@ -21,27 +21,31 @@ export function Dashboard() {
 
     const { logout } = useAuth();
 
-    const fetchData = useCallback(async () => {
-        try {
-            setLoading(true);
-            setError(null);
-
-            const { positions, totalValue, historicalData } = await getDashboardData();
-
-            setPositions(positions);
-            setTotalValue(totalValue);
-            setHistoricalData(historicalData);
-        } catch (err) {
-            console.error('Failed to fetch dashboard data:', err);
-            setError(err instanceof Error ? err.message : 'Failed to load dashboard data');
-        } finally {
-            setLoading(false);
-        }
-    }, []);
+    
 
     useEffect(() => {
-        fetchData();
-    }, [fetchData]);
+        
+      const fetchData = () => {
+          try {
+              setLoading(true);
+              setError(null);
+
+              const { positions, totalValue, historicalData } = await getDashboardData();
+
+              setPositions(positions);
+              setTotalValue(totalValue);
+              setHistoricalData(historicalData);
+          } catch (err) {
+              console.error('Failed to fetch dashboard data:', err);
+              setError(err instanceof Error ? err.message : 'Failed to load dashboard data');
+          } finally {
+              setLoading(false);
+          }
+      }
+
+      fetchData();
+
+    }, []);
 
     const pieChartData = useMemo<PieChartData[]>(() => {
         if (viewMode === 'asset') {
