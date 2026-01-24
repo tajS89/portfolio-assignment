@@ -21,29 +21,27 @@ export function Dashboard() {
 
     const { logout } = useAuth();
 
-    
-
     useEffect(() => {
-        
-      const fetchData = () => {
-          try {
-              setLoading(true);
-              setError(null);
 
-              const { positions, totalValue, historicalData } = await getDashboardData();
+        const fetchData = async () => {
+            try {
+                setLoading(true);
+                setError(null);
 
-              setPositions(positions);
-              setTotalValue(totalValue);
-              setHistoricalData(historicalData);
-          } catch (err) {
-              console.error('Failed to fetch dashboard data:', err);
-              setError(err instanceof Error ? err.message : 'Failed to load dashboard data');
-          } finally {
-              setLoading(false);
-          }
-      }
+                const { positions, totalValue, historicalData } = await getDashboardData();
 
-      fetchData();
+                setPositions(positions);
+                setTotalValue(totalValue);
+                setHistoricalData(historicalData);
+            } catch (err) {
+                console.error('Failed to fetch dashboard data:', err);
+                setError(err instanceof Error ? err.message : 'Failed to load dashboard data');
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        fetchData();
 
     }, []);
 
