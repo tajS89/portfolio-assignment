@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Default theme (Ocean Blue) */
+:root,
+[data-theme="ocean"] {
+  --color-primary: 59 130 246; /* #3b82f6 */
+  --color-secondary: 99 102 241; /* #6366f1 */
+  --color-accent: 6 182 212; /* #06b6d4 */
+
+  --chart-color-1: #3b82f6;
+  --chart-color-2: #6366f1;
+  --chart-color-3: #06b6d4;
+  --chart-color-4: #8b5cf6;
+  --chart-color-5: #ec4899;
+  --chart-color-6: #f59e0b;
+  --chart-color-7: #10b981;
+}
+
+[data-theme="forest"] {
+  --color-primary: 16 185 129; /* #10b981 */
+  --color-secondary: 20 184 166; /* #14b8a6 */
+  --color-accent: 132 204 22; /* #84cc16 */
+
+  --chart-color-1: #10b981;
+  --chart-color-2: #14b8a6;
+  --chart-color-3: #84cc16;
+  --chart-color-4: #22c55e;
+  --chart-color-5: #06b6d4;
+  --chart-color-6: #3b82f6;
+  --chart-color-7: #8b5cf6;
+}
+
+[data-theme="royal"] {
+  --color-primary: 139 92 246; /* #8b5cf6 */
+  --color-secondary: 217 70 239; /* #d946ef */
+  --color-accent: 236 72 153; /* #ec4899 */
+
+  --chart-color-1: #8b5cf6;
+  --chart-color-2: #d946ef;
+  --chart-color-3: #ec4899;
+  --chart-color-4: #f43f5e;
+  --chart-color-5: #f59e0b;
+  --chart-color-6: #3b82f6;
+  --chart-color-7: #10b981;
+}
